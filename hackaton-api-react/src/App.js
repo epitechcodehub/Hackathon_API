@@ -29,8 +29,17 @@ const Button = styled.button`
 `;
 
 function submiting(formData) {
-  const input = formData.get("input");
-  alert(`you inputed '${input}'`);
+  const input1 = formData.get("input1");
+  const input2 = formData.get("input2");
+  if (input1 == '') {
+    alert("missing input 1")
+    return
+  }
+  if (input2 == '') {
+    alert("missing input 2")
+    return
+  }
+  alert(`you inputed '${input1} and ${input2}'`);
 }
 
 function App() {
@@ -41,9 +50,13 @@ function App() {
           <p className='head-window'>
               Test
           </p>
-          <form action={submiting}>
-    <input name="input" />
-<Button className='wbutton' type="submit">bouton test</Button></form>
+          <form action={submiting} id="input1">
+          <label>Input 1: </label>
+          <input name="input1" placeholder='input something here...' />
+          <label> <br />Input 2:</label>
+          <input name="input2" placeholder='input something else here...' />
+          <br />
+          <Button className='wbutton' type="submit">Send</Button></form>
         </p>
         <p className="taskbar">
         <Button onPress={() => {alert('1');}}> 

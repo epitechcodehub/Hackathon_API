@@ -1,6 +1,6 @@
 const express = require("express")
 const mongoose = require("mongoose")
-const url = "mongodb://localhost:27017/dbase"
+const url = "mongodb+srv://iyadhossen:sejg23;M§é@hackaton-api.l9pir.mongodb.net/dbase"
 const app = express()
 const PORT = 8801
 

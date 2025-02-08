@@ -1,0 +1,89 @@
+
+.head-window {
+  margin: 0%;
+  text-indent: 10px 10px;
+  font-size: 19px;
+  text-align: left;
+  color: white;
+  background-color: #000082;
+  border-color: #c3c3c3;
+  border-width: 1px;
+  border-style:solid;
+  width: 99.6%;
+}
+
+.defaultform {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  font-family:'W95'; 
+  width: 80%;
+  padding-bottom: 20px;
+}
+
+.wbutton {
+  background-color: #c3c3c3;
+  color: black;
+  font-family: 'W95';
+  font-size: 25px;
+  top:0%;
+  left: 100%;
+  padding: 5px 15px;
+  outline: 0;
+  border-width: 1px; 
+  border-style: solid;
+  margin: 4px 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px black;
+  transition: ease background-color 250ms;
+  &:hover {
+    background-color: #e8e8e8;
+  }
+  &:disabled {
+    cursor: default;
+    opacity: 0.7;
+  }
+}
+
+.window {
+  text-align: center;
+  background-color: #c3c3c3;
+  border-color: black;
+  border-width: 1px;
+  border-style:solid;
+  width: 800px;
+  height: 500px;
+}
+
+.taskbar {
+  margin: 0%;
+  text-align: left;
+  position: absolute;
+  top: 93.5%;
+  color: black;
+  background-color: #c3c3c3;
+  border-color: black;
+  border-width: 1px;
+  border-style:solid;
+  width: 99.9%;
+  height: 56px;
+}
+
+.App-header {
+  background-color: #008080;
+  background-size: 100% auto;
+  display: flex;
+  flex-direction: column;
+  content: center;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+}
+
+.App-link {
+  color: #61dafb;
+}

@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+
+.head-window {
+  margin: 0%;
+  font-size: 20px;
+  text-align: left;
+  color: white;
+  background-color: #000082;
+  border-color: #c3c3c3;
+  border-width: 1px;
+  border-style:solid;
+  width: 99.6%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.wbutton {
+  background-color: #c3c3c3;
+  color: black;
+  font-family: 'W95';
+  font-size: 25px;
+  top:0%;
+  left: 100%;
+  padding: 5px 15px;
+  border-radius: 5px;
+  outline: 0;
+  border-width: 1px; 
+  border-style: solid;
+  text-transform: uppercase;
+  margin: 4px 4px;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px black;
+  transition: ease background-color 250ms;
+  &:hover {
+    background-color: #c3c3c0;
+  }
+  &:disabled {
+    cursor: default;
+    opacity: 0.7;
   }
 }
 
+.window {
+  text-align: center;
+  background-color: #c3c3c3;
+  border-color: black;
+  border-width: 1px;
+  border-style:solid;
+  width: 50%;
+}
+
+.taskbar {
+  margin: 0%;
+  text-align: left;
+  position: absolute;
+  top: 94.5%;
+  color: black;
+  background-color: #c3c3c3;
+  border-color: black;
+  border-width: 1px;
+  border-style:solid;
+  width: 100%;
+}
+
+.window:after {
+  content: "";
+  display: block;
+  padding-bottom: 60%;
+}
+
+.content {
+  position:absolute;
+  width: 100%;
+  height: 100%;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #008080;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

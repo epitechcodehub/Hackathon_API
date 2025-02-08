@@ -33,7 +33,7 @@ app.get("/API/getUsers", (req, res) => {
 })
 
 app.get("/API/getUsers/:name", (req, res) => {
-  const user_info = UserModel.find(req.params).then(users => {
+  UserModel.find(req.params).then(users => {
     res.status(200).send(users)
   }).catch(err => {
     res.status(404).send(err)

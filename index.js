@@ -1,10 +1,12 @@
 const express = require("express")
 const mongoose = require("mongoose")
+const cors = require("cors")
 const url = "mongodb+srv://iyadhossen:sejg23;M§é@hackaton-api.l9pir.mongodb.net/dbase"
 const app = express()
 const PORT = 8801
 
 app.use(express.json())
+app.use(cors())
 
 mongoose.connect(url).then(() => {
   console.log(`Successfully connected to ${url}`)
@@ -69,6 +71,14 @@ app.delete("/API/delUsers/:id", (req, res) => {
 
 app.get("/API/getAnnouncements", (req, res) => {
   AnnouncementModel.find({}).then(announcements => {
+    res.status(200).send(announcements)
+  }).catch(err => {
+    res.status(404).send(err)
+  })
+})
+
+app.get("/API/getAnnouncements/:id", (req, res) => {
+  AnnouncementModel.findById(req.params.id).then(announcements => {
     res.status(200).send(announcements)
   }).catch(err => {
     res.status(404).send(err)

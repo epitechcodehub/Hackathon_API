@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React from 'react';
 import reactDom from 'react-dom';
 import GlitchSquiggly from 'react-glitch-effect/core/GlitchSquiggly';
-
+import axios from "axios";
 
 const Button = styled.button`
   background-color: #c3c3c3;
@@ -30,30 +30,27 @@ const Button = styled.button`
   }
 `;
 
-function CreateAccount() {
+function CreateAnnounce() {
 
     const submiting = (formData) => {
-        const name = formData.get("name");
-        const lastname = formData.get("lastname");
-        const email = formData.get("email");
-        const age = formData.get("age");
-        if (name == '') {
-            alert("missing name")
+        const title = formData.get("name");
+        const content = formData.get("lastname");
+        if (title == '') {
+            alert("missing title")
             return
         }
-        if (lastname == '') {
-            alert("missing lastname")
+        if (content == '') {
+            alert("missing content")
             return
         }
-        if (email == '') {
-            alert("missing email")
-            return
-        }
-        if (age == '') {
-            alert("missing age")
-            return
-        }
-        alert(`you inputed '${name}' and '${lastname}' and '${email}' and '${age}'`);
+        const response = axios.post('http://localhost:8801/API/addAnnouncements', { title: title, description: content, taken: false })
+        .then(response => {
+            console.log(response.data);
+            window.location.href = '/';
+        })
+        .catch(error => {
+            alert(error);
+        });
     }
 
 return (
@@ -65,19 +62,15 @@ return (
                     <Button className='wbutton' type="button" style={{ position: "sticky", left: "100%", fontSize: "10px", padding: "2px 4px" }}>X</Button>
                 </p>
                 <GlitchSquiggly>
-                    <h1>Create an account</h1>
+                    <h1>Create an announce</h1>
                 </GlitchSquiggly>
                 <h4>texte placeholder ici pour expliquer le but ou les inputs peut etre</h4>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <form action={submiting} id="input1" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                    <label style={{ marginBottom: '5px' }}>name : </label>
+                    <label style={{ marginBottom: '5px' }}>Title : </label>
                     <input type="text" name="name" style={{ marginBottom: '10px' }} />
-                    <label style={{ marginBottom: '5px' }}>lastname: </label>
+                    <label style={{ marginBottom: '5px' }}>discription: </label>
                     <input type="text" name="lastname" style={{ marginBottom: '10px' }} />
-                    <label style={{ marginBottom: '5px' }}>email: </label>
-                    <input type="email" name="email" style={{ marginBottom: '10px' }} />
-                    <label style={{ marginBottom: '5px' }}>Age</label>
-                    <input type="number" name="age" style={{ marginBottom: '10px' }} />
                     <Button type="submit" style={{display: 'flex', flexDirection: 'column', alignItems: 'center' }}>Submit</Button>
                 </form>
                 </div>
@@ -87,4 +80,4 @@ return (
 );
 }
 
-export default CreateAccount;
+export default CreateAnnounce;

@@ -6,6 +6,8 @@ import Annouce from './Announce';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const Button = styled.button`
   background-color: #c3c3c3;
@@ -35,14 +37,21 @@ const Button = styled.button`
 
 function Home() {
 
-    const Annoucee = [
-        {title: "Announcement 1", content: "Content 1"},
-        {title: "Announcement 2", content: "Content 2"},
-        {title: "Announcement 3", content: "Content 3"},
-        {title: "Announcement 4", content: "Content 4"},
-    ];
+    const [Annoucees, setAnnoucees] = useState([]);
 
-    // Carousel settings
+
+    useEffect(() => {
+        axios.get('http://localhost:8801/API/getAnnouncements')
+            .then(response => {
+                setAnnoucees(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }, []);
+
+
     const settings = {
         dots: true,
         infinite: true,
@@ -69,13 +78,19 @@ function Home() {
                     {/* Carousel for Announcements */}
                     <div style={{ width: "100%", marginTop: "20px" }}>
                         <Slider {...settings} >
-                            {Annoucee.map((annouce, index) => (
-                                <Annouce key={index} title={annouce.title} content={annouce.content} />
+                            {Annoucees.map((annouce, index) => (
+                                <Annouce key={index} title={annouce.title} content={annouce.description} taken={annouce.taken} id={annouce._id} />
                             ))}
                         </Slider>
                     </div>
+                    
                 </div>
+                <Button className='wbutton' type="button" style={{padding: "2px 4px" }}
+                onClick={() => window.location.href = '/createAnnounce'}>
+                create an announce
+                </Button>
             </header>
+            
         </div>
     );
 }

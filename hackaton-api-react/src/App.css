@@ -1,7 +1,8 @@
 
 .head-window {
   margin: 0%;
-  font-size: 20px;
+  text-indent: 10px 10px;
+  font-size: 19px;
   text-align: left;
   color: white;
   background-color: #000082;
@@ -9,6 +10,15 @@
   border-width: 1px;
   border-style:solid;
   width: 99.6%;
+}
+
+.defaultform {
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  font-family:'W95'; 
+  width: 80%;
+  padding-bottom: 20px;
 }
 
 .wbutton {
@@ -19,7 +29,6 @@
   top:0%;
   left: 100%;
   padding: 5px 15px;
-  border-radius: 5px;
   outline: 0;
   border-width: 1px; 
   border-style: solid;
@@ -42,43 +51,37 @@
   border-color: black;
   border-width: 1px;
   border-style:solid;
-  width: 50%;
+  width: 800px;
+  height: 500px;
 }
 
 .taskbar {
   margin: 0%;
   text-align: left;
   position: absolute;
-  top: 94.5%;
+  top: 93.5%;
   color: black;
   background-color: #c3c3c3;
   border-color: black;
   border-width: 1px;
   border-style:solid;
-  width: 100%;
-}
-
-.window:after {
-  content: "";
-  display: block;
-  padding-bottom: 60%;
-}
-
-.content {
-  position:absolute;
-  width: 100%;
-  height: 100%;
+  width: 99.9%;
+  height: 56px;
 }
 
 .App-header {
   background-color: #008080;
-  min-height: 100vh;
+  background-size: 100% auto;
   display: flex;
   flex-direction: column;
+  content: center;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
 }
 
 .App-link {

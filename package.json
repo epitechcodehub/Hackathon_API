@@ -1,5 +1,17 @@
 {
   "dependencies": {
-    "react-text-glitch-effect": "^1.0.7"
+    "@johnn-e/react-glitch-text": "^1.0.0",
+    "bitlogo": "^1.0.7",
+    "postcss-glitch": "^3.2.38",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-glitch-animation": "^1.0.0",
+    "react-glitch-effect": "^3.1.0",
+    "react-text-glitch-effect": "^1.0.7",
+    "vue": "^3.5.13",
+    "vue-glitched": "^0.3.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
   }
 }

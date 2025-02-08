@@ -1,7 +1,8 @@
 import './App.css';
-import styled from "styled-components"
-import React from 'react'
-//import TextGlitchEffect from "react-text-glitch-effect";
+import styled from "styled-components";
+import React from 'react';
+import reactDom from 'react-dom';
+import GlitchSquiggly from 'react-glitch-effect/core/GlitchSquiggly';
 
 const Button = styled.button`
   background-color: #c3c3c3;
@@ -21,6 +22,7 @@ const Button = styled.button`
   transition: ease background-color 250ms;
   &:hover {
     background-color: white;
+    box-shadow: 2px 0px 0px black;
   }
   &:disabled {
     cursor: default;
@@ -39,7 +41,7 @@ function submiting(formData) {
     alert("missing input 2")
     return
   }
-  alert(`you inputed '${input1} and ${input2}'`);
+  alert(`you inputed '${input1}' and '${input2}'`);
 }
 
 function App() {
@@ -49,22 +51,26 @@ function App() {
         <p className="window">
           <p className='head-window'>
               Test
-          </p>
+              <Button className='wbutton' type="button" style={{position:"sticky", left:"100%", fontSize:"10px", padding:"2px 4px"}}>X</Button>
+          </p><GlitchSquiggly>
+          <h1>WELCOME</h1>
+          </GlitchSquiggly>
+          <h4>texte placeholder ici pour expliquer le but ou les inputs peut etre</h4>
           <form action={submiting} id="input1">
           <label>Input 1: </label>
-          <input name="input1" placeholder='input something here...' />
-          <label> <br />Input 2:</label>
-          <input name="input2" placeholder='input something else here...' />
+          <input name="input1" placeholder='input something here...' className='defaultform' />
+          <label style={{paddingTop:"100px", paddingBottom:"100px"}}> <br />Input 2: </label>
+          <input name="input2" placeholder='input something else here...' className='defaultform'/>
           <br />
           <Button className='wbutton' type="submit">Send</Button></form>
         </p>
         <p className="taskbar">
-        <Button onPress={() => {alert('1');}}> 
+        <Button> 
         <img src={require('./img/W95_logo.png')} alt="win"/>
-        Start
         </Button>
+        <div>
+    </div>
         </p>
-        <p></p>
       </header>
     </div>
   );

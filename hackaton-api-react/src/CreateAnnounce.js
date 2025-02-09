@@ -46,7 +46,7 @@ function CreateAnnounce() {
         const response = axios.post('http://localhost:8801/API/addAnnouncements', { title: title, description: content, taken: false })
         .then(response => {
             console.log(response.data);
-            window.location.href = '/';
+            window.location.href = '/Announce';
         })
         .catch(error => {
             alert(error);
@@ -54,12 +54,13 @@ function CreateAnnounce() {
     }
 
 return (
-    <div className="CreateAccount" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <header className="CreateAccount-header">
+    <div className="App">
+        <header className="App-header">
             <p className="window">
                 <p className='head-window'>
                     window
-                    <Button className='wbutton' type="button" style={{ position: "sticky", left: "100%", fontSize: "10px", padding: "2px 4px" }}>X</Button>
+                    <Button className='wbutton' type="button" style={{ position: "sticky", left: "100%", fontSize: "10px", padding: "2px 4px" }}
+                    onClick={() => {window.location.href = "/Announce"}}>X</Button>
                 </p>
                 <GlitchSquiggly>
                     <h1>Create an announce</h1>

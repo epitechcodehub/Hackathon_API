@@ -69,7 +69,10 @@ function Home() {
                 <div className="window" style={{ display: "inline-block", minHeight: "300px", padding: "20px", maxWidth: "80%" }}>
                     <div className='head-window' style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                         Test
-                        <Button className='wbutton' type="button" style={{ fontSize: "10px", padding: "2px 4px" }}>X</Button>
+                        <Button className='wbutton' type="button" style={{ fontSize: "10px", padding: "2px 4px" }}
+                        onClick={() => {
+                            window.location.href = "/"
+                        }}>X</Button>
                     </div>
                     <GlitchSquiggly>
                         <h1>WELCOME</h1>

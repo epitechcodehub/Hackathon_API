@@ -34,6 +34,10 @@ const UserModel = mongoose.model("users", UserSchema)
 const AnnouncementModel = mongoose.model("announcements", AnnouncementScheme)
 
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the hackaton API")
+})
+
 app.get("/API/getUsers", (req, res) => {
   UserModel.find({}).then(users => {
     res.status(200).send(users)
